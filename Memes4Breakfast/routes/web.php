@@ -5,7 +5,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 // Load memes on the homepage
-Route::resource('/', MemeController::class);
+Route::get('/', [MemeController::class, 'index'])->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
