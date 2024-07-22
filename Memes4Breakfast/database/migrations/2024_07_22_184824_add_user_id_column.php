@@ -11,14 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('memes', function (Blueprint $table) {
-            $table->id();
-            $table->string('caption');
-            $table->string('meme');
-            $table->foreignId('user_id')->constrained()->default(100);
-            $table->integer('likes')->default(0);
-            $table->timestamps();
-
+        Schema::table('users', function (Blueprint $table) {
+            //
         });
     }
 
@@ -27,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('memes');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 };

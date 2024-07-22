@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Meme extends Model
 {
     use HasFactory;
+    protected $fillable = ['caption', 'meme', 'user_id'];
 
-    protected $fillable = ['caption'];
+    // declare many-to-one-relationship
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }

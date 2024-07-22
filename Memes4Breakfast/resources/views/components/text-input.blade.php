@@ -1,3 +1,10 @@
-@props(['disabled' => false])
+@props([
+    'disabled' => false,
+    'required' => true
+])
 
-<input {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => 'border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm']) !!}>
+<label for="{{ $name }}" {!! $attributes->merge(['class' => 'block text-gray-400 text-sm pl-2 mt-10']) !!}>{{ $slot }}</label>
+<input  {{ $disabled ? 'disabled' : '' }} 
+        {{ $required ? 'required' : '' }} 
+        {!! $attributes->merge(['class' => 'text-black border-t-0 border-x-0 border-b-2']) !!} name="{{ $name }}"
+>
