@@ -22,8 +22,8 @@
     </head>
     <header class="items-center gap-2 px-10 py-6 bg-transparant shadow-md">
         <div class="grid grid-cols-2 md:w-132 md:m-auto items-center">
-            <div class="flex">
-                <h1 class="weight-2xl text-green-600">Memes4Breakfast</h1>
+            <div class="flex w-36">
+                <x-application-logo />
             </div>
             @if (Route::has('login'))
                 <nav class="-mx-3 flex flex-1 justify-end">

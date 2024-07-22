@@ -16,15 +16,19 @@
 
     <form action="{{ route('create') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <x-text-input name="caption" class="w-full outline-none focus:ring-0 focus:border-green-600">
-            Give your meme a caption
-        </x-text-input>
+        <!-- file upload -->
+        <x-input-label for="caption" :value="__('Upload your meme')" class="mb-4" />
         <input 
-          class="border-2 border-dotted p-8 mt-12 w-full"
-          type="file"
-          name="meme"
+            class="border-2 border-dotted p-8 mb-8 w-full"
+            type="file"
+            name="meme"
         >
-        </input>
+
+        <!-- caption input field -->
+        <x-input-label for="caption" :value="__('Caption')" />
+        <x-text-input name="caption" class="w-full outline-none focus:ring-0 focus:border-green-600" />
+
+        <!-- submit -->
         <x-primary-button class="mt-8">
             Upload this meme
         </x-primary-button>
