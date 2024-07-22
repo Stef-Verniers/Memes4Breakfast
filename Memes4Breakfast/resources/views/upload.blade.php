@@ -1,6 +1,10 @@
 @include('layouts.header')
 
-<main class="py-10 px-10 md:w-2/3 md:m-auto items-center justify-center">
+<main class="py-10 px-10 md:w-132 md:m-auto md:p-0 md:mt-8 items-center justify-center">
+    <x-nav-link :href="route('home')" class="mb-8">
+        Go back
+    </x-nav-link>
+
     <h1 class="text-4xl font-bold">Upload your meme</h1>
     <p class="mt-2 mb-16">
         You are freely to upload any meme you would like to share with us.

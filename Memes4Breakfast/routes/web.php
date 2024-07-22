@@ -9,7 +9,7 @@ Route::get('/', [MemeController::class, 'index'])->name('home');
 
 // Handle meme routes
 Route::get('/upload', [MemeController::class, 'upload'])->name('upload');
-Route::post('create', [MemeController::class, 'create'])->name('create');
+Route::post('/upload/create', [MemeController::class, 'create'])->name('create');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -21,7 +21,7 @@
         <link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
     </head>
     <header class="items-center gap-2 px-10 py-6 bg-transparant shadow-md">
-        <div class="grid grid-cols-2 md:w-2/3 md:m-auto items-center">
+        <div class="grid grid-cols-2 md:w-132 md:m-auto items-center">
             <div class="flex">
                 <h1 class="weight-2xl text-green-600">Memes4Breakfast</h1>
             </div>

@@ -1,12 +1,14 @@
-<section class="bg-red-100">
-    <div>
-        <h1>{{ $caption }}</h1>
-        <p>320</p>
+@foreach ($memes as $meme)
+<section class="shadow-xl border-b-2 m-auto mb-12 md:w-132 xl:w-148 p-6">
+    <div class="mt-4 mb-8 flex inline justify-between items-center">
+        <h1 class="font-bold text-lg md:text-2xl">{{ $meme->caption }}</h1>
+        <p class="">{{ $meme->likes }}</p>
     </div>
-    <div>
-        <p>here comes the image</p>
+    <div class="my-4 flex justify-center">
+        <img class="md:max-w-md" src="{{ asset('uploads/'. $meme->meme) }}" />
     </div>
-    <div>
-        <h2>Made by Stef Verniers</h2>
+    <div class="mt-8">
+        <h2 class="font-bold text-green-600">{{ $meme->user->name }}</h2>
     </div>
 </section>
+@endforeach
