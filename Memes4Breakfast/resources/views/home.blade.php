@@ -10,6 +10,14 @@
 
     <!-- FILTER COMING SOON -->
 
+    <!-- Show message if there are no memes at all -->
+    @if ($memes->count() == 0)
+        <section class="m-auto mb-12 md:w-132 xl:w-148 p-6 text-center">
+            <h1 class="mt-24 font-bold text-lg md:text-2xl">There are no memes to show...</h1>
+            <p class="mt-4 color-slate-200 text-sm">Come back later or be the first to upload one</p>
+        </section>
+    @endif
+
     <!-- Show our memes -->
     @foreach ($memes as $meme)
         <section class="shadow-xl border-b-2 m-auto mb-12 md:w-132 xl:w-148 p-6">

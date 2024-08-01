@@ -8,7 +8,7 @@
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" class="text-white" />
-            <x-text-input id="email" class="block mt-1 w-full bg-gray-100" 
+            <x-text-input id="email" class="block mt-1 w-full bg-gray-100 border-b-0" 
                             type="email" 
                             name="email" 
                             :value="old('email')" 
@@ -22,7 +22,7 @@
         <div class="mt-4">
             <x-input-label class="text-white" for="password" :value="__('Password')" />
 
-            <x-text-input id="password" class="block mt-1 w-full bg-gray-100"
+            <x-text-input id="password" class="block mt-1 w-full bg-gray-100 border-b-0"
                             type="password"
                             name="password"
                             required autocomplete="current-password" />
@@ -33,7 +33,7 @@
         <!-- Remember Me -->
         <div class="block mt-4">
             <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded dark:bg-white border-gray-300 dark:border-gray-700" name="remember">
+                <input id="remember_me" type="checkbox" class="rounded dark:bg-white border-gray-300" name="remember">
                 <span class="ms-2 text-sm text-white dark:text-white">{{ __('Remember me') }}</span>
             </label>
         </div>

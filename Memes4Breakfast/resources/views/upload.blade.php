@@ -14,6 +14,8 @@
         Happy meming!
     </p>
 
+    <!-- Toast messages COMING SOON --> 
+
     <form action="{{ route('create') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <!-- file upload -->

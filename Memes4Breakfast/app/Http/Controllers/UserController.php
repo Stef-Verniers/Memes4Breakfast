@@ -14,9 +14,4 @@ class UserController extends Controller
             'users' => $users
         ]);
     }
-
-    // Create a new user
-    public function create(Request $r) {
-        // COMING SOON
-    }
 }

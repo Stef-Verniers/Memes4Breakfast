@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Meme;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class MemeController extends Controller
 {
@@ -18,6 +19,13 @@ class MemeController extends Controller
 
     // upload page
     public function upload() {
+        // Declare a variable to get the logged in user (or not)
+        $user = Auth::user();
+        // Redirect not authenticated users to the login page because non-auths can't post
+        if (!$user) {
+            return view('auth/login');
+        }
+        // if authenticated, the user will be proceeded to the upload page
         return view('/upload');
     }
 

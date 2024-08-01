@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('caption');
             $table->string('meme');
-            $table->foreignId('user_id')->constrained()->default(100);
+            $table->foreignId('user_id')->constrained();
             $table->integer('likes')->default(0);
             $table->timestamps();
 
