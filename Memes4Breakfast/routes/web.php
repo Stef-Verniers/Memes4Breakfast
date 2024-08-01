@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MemeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 // Our homepage
@@ -11,9 +12,9 @@ Route::get('/', [MemeController::class, 'index'])->name('home');
 Route::get('/upload', [MemeController::class, 'upload'])->name('upload');
 Route::post('/upload/create', [MemeController::class, 'create'])->name('create');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
