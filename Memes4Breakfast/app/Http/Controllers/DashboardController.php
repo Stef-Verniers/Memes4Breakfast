@@ -16,11 +16,4 @@ class DashboardController extends Controller
         return view('dashboard', compact('user'));
     }
 
-    public function choose() 
-    {
-        $user = Auth::user();
-        $avatars = Avatar::all()->where('is_exclusive', '=' , 0);
-        dd($avatars);
-    }
-
 }
