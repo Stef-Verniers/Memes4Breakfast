@@ -13,6 +13,13 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <!-- Custom JS -->
+        <script type="text/javascript" src="{{ URL::asset('js/custom.js') }}"></script>
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="{{asset('css/reset.css')}}">
+        <link rel="stylesheet" href="{{asset('css/custom.css')}}">
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">

@@ -12,3 +12,13 @@ input[type=file]::-webkit-file-upload-button {
 input[type=file]::-ms-browse {
     display: none;
 }
+
+.avatar {
+    border: solid 4px transparent;
+}
+
+.selected-avatar {
+    box-sizing: border-box;
+    border-radius: 0.375rem;
+    border: solid 4px #3b82f6;
+}

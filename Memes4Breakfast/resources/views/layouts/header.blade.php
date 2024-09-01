@@ -6,7 +6,7 @@
 
         <title>Laravel</title>
 
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite(['resources/js/custom.js', 'resources/css/app.css', 'resources/js/app.js'])
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -19,6 +19,10 @@
         <!-- Dropzone JS -->
         <script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
         <link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
+
+        <!-- Custom JS -->
+        <script type="text/javascript" src="{{ URL::asset('js/custom.js') }}"></script>
+
     </head>
     <header class="items-center gap-2 px-10 py-6 bg-transparant shadow-md">
         <div class="grid grid-cols-2 md:w-132 md:m-auto items-center">
