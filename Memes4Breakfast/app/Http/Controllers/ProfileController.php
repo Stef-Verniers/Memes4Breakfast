@@ -20,28 +20,44 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        // Select all avatars with corresponding categories and push them to the view
-        $defaults = Avatar::where('is_exclusive', 0)->where('is_premium', 0)->get();
-        $premiums = Avatar::where('is_premium', 1)->get();
-        $exclusives = Avatar::where('is_exclusive', 1)->get();
 
-        // $currentAvatar = User::where('avatar_id')->get
+        // Select all avatars with corresponding categories and push them to the view
+        $defaults = Avatar::where('is_exclusive', 0)->where('is_premium', 0)->where('is_admin', 0)->get();
+        $premiums = Avatar::where('is_premium', 1)->orderBy('price', 'asc')->get();
+        $exclusives = Avatar::where('is_exclusive', 1)->get();
 
         return view('profile.edit', [
             'user' => $request->user(),
         ], compact('defaults', 'premiums', 'exclusives'));
+
     }
 
+    /**
+     * Allows users to update their avatar
+     */
     public function choose(Request $request) 
     {   
+
         $user = Auth::user();
         $newAvatar = intval($request->get('avatarId'));
+        $price = Avatar::where('id', $newAvatar)->pluck('price')->first();
 
-        DB::table('users')
-              ->where('id', $user->id)
-              ->update(['avatar_id' => $newAvatar]);
+        if ($user->score >= $price) {
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+            DB::table('users')
+            ->where('id', $user->id)
+            ->update(array(
+                'avatar_id' => $newAvatar,
+                'avatar_fallback' => $newAvatar
+            ));
+            return Redirect::route('profile.edit')->with('status', 'profile-updated');
+
+        } else {
+
+            return back();
+
+        }
+    
     }
 
     /**
@@ -49,6 +65,7 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
+
         $request->user()->fill($request->validated());
 
         if ($request->user()->isDirty('email')) {
@@ -58,6 +75,7 @@ class ProfileController extends Controller
         $request->user()->save();
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
+
     }
 
     /**
@@ -79,5 +97,12 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+    }
+
+    public function awardAvatar() {
+
+        $topFive = User::all()->orderBy('score', 'desc')->limit(6);
+        dd($topFive);
+
     }
 }

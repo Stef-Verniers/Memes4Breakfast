@@ -11,13 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('avatars', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('path');
-            $table->boolean('is_premium')->default(false);
-            $table->boolean('is_exclusive')->default(false);
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->integer('avatar_fallback')->default(1)->after('avatar_id');
         });
     }
 
@@ -26,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 };

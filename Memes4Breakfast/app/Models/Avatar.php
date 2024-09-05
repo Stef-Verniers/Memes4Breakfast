@@ -13,7 +13,8 @@ class Avatar extends Model
         'name',
         'path',
         'is_premium',
-        'is_exclusive'
+        'is_exclusive',
+        'is_admin'
     ];
 
     public function users()

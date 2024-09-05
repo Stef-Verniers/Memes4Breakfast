@@ -22,3 +22,9 @@ input[type=file]::-ms-browse {
     border-radius: 0.375rem;
     border: solid 4px #3b82f6;
 }
+
+.disabled {
+    color: linen;
+    opacity: 0.3;
+    pointer-events: none;
+}

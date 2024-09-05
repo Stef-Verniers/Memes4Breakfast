@@ -12,11 +12,16 @@ function loadAvatars() {
     allAvatars = [...defaultAvatars, ...premiumAvatars];
 
     let myAvatar = allAvatars.filter((avatar) => avatar.id === currentAvatar);
+    console.log(allAvatars)
     myAvatar[0].classList.add('selected-avatar');
     
     // Add a click event for each avatar
     allAvatars.forEach(avatar => {
-        avatar.addEventListener('click', pickAvatar);
+        if (avatar.classList.contains !== 'disabled') {
+            console.log('this avatar is available');
+            avatar.addEventListener('click', pickAvatar);
+        }
+        return;
     });
 
 }

@@ -17,7 +17,8 @@
         <div id="{{ $user->avatar_id }}" type="hidden" class="currentAvatar"></div>
 
         {{-- Default avatars --}}
-        <x-input-label class="text-left text-slate-600 text-md">{{ __('Default avatars')}}</x-input-label>
+        <h3 class="text-left text-slate-600 text-md">{{ __('Default avatars')}}</h3>
+        <x-input-label class="text-left text-slate-600 text-md">Default avatars anyone can use</x-input-label>
         <div class="grid grid-cols-3 justify-items-center gap-y-6" id="defaults">
             @foreach ($defaults as $avatar)
             <div id={{ $avatar->id }} class="p-2 avatar hover:shadow-xl hover:cursor-pointer">
@@ -27,14 +28,22 @@
             @endforeach
         </div>
 
-        <x-input-label class="text-left text-slate-600 text-md">{{ __('Premium avatars')}}</x-input-label>
+        <h3 class="text-left text-slate-600 text-md">{{ __('Premium avatars')}}</h3>
+        <x-input-label class="text-left text-slate-600 text-md">By creating memes, you achieve credit. Use that credit to unlock premium avatars</x-input-label>
         <div class="grid grid-cols-3 justify-items-center gap-y-6" id="premiums">
             {{-- Premium Avatars --}}
             @foreach ($premiums as $avatar)
+            @if ($user->score < $avatar->price)
+                <div id={{ $avatar->id }} class="p-2 avatar hover:shadow-xl hover:cursor-pointer disabled">
+                    <img src="{{ asset($avatar->path) }}" class="w-24 lg:w-28" />
+                    <x-input-label class="text-center text-slate-500 mt-2 text-xs">{{ __($avatar->name) }}</x-input-label>
+                </div> 
+            @else
             <div id={{ $avatar->id }} class="p-2 avatar hover:shadow-xl hover:cursor-pointer">
                 <img src="{{ asset($avatar->path) }}" class="w-24 lg:w-28" />
                 <x-input-label class="text-center text-slate-500 mt-2 text-xs">{{ __($avatar->name) }}</x-input-label>
             </div>
+            @endif
             @endforeach
         </div>
 
