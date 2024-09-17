@@ -28,3 +28,21 @@ input[type=file]::-ms-browse {
     opacity: 0.3;
     pointer-events: none;
 }
+
+.like-path svg {
+    width: 25px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    fill: white;
+}
+
+.like-path .st0:hover {
+    fill: rgb(197, 34, 34);
+    transition: all 0.3s ease;
+}
+
+.liked .st0 {
+    fill: rgb(197, 34, 34);
+    transition: all 0.3s ease;
+}

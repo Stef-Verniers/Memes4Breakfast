@@ -31,6 +31,8 @@ class MemeController extends Controller
 
     // Create (or upload) a meme
     public function create(Request $req) {
+
+        $id = Auth::id();
         
         // validate request and declare rules
         $req->validate([
@@ -45,10 +47,10 @@ class MemeController extends Controller
         $req->meme->move(public_path('uploads'), $rename);
 
         // Store the meme to the database
-        $meme = Meme::create([
+        Meme::create([
             'caption' => $req->input('caption'),
             'meme' => $rename,
-            'user_id' => 100
+            'user_id' => $id,
         ]);
 
         return redirect('/');

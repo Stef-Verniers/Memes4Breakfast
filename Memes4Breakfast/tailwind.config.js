@@ -16,6 +16,7 @@ export default {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
             width: {
+                '124': '32rem',
                 '132': '36rem',
                 '140': '40rem',
             }

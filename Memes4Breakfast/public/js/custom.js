@@ -47,9 +47,19 @@ function pickAvatar(event) {
     
 }
 
+function likeMeme(event) {
+    // Vervolledig de functie om de like buttons te animeren en de meme een state van 'liked' te geven.
+    allMemes = document.querySelectorAll('.like-path')
+    console.log(allMemes)
+    console.log('allMemes')
+}
+
 document.addEventListener('DOMContentLoaded', function() {
 
     console.log('DOM fully loaded and parsed');
-    loadAvatars();
+    if(window.location == 'http://127.0.0.1:8000/profile') {
+        loadAvatars();
+    }
+    likeMeme();
 
 });
